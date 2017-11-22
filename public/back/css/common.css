@@ -59,7 +59,7 @@ body,html{
   text-decoration: none;
 }
 .user{
-  padding: 27px 45px;
+  padding: 27px 32px;
   text-align: center;
 }
 .it_aside .user img{
@@ -70,6 +70,7 @@ body,html{
 .user span{
  
   color: #fff;
+  font-size: 21px;
 }
 .nav a{
   display: block;
@@ -79,6 +80,7 @@ body,html{
   color: #ccc;
   height: 40px;
   line-height: 40px;
+  margin-top:15px;
   
 }
 .nav a.now{
@@ -120,4 +122,12 @@ body,html{
 .pic_right {
   width: 45%;
   height: 400px;
+}
+.it_container table td{
+  text-align: center;
+  
+}
+/*页码作为文本让他右对齐*/
+#pageNation{
+  text-align: right;
 }

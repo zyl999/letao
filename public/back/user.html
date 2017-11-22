@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>用户界面</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
@@ -52,12 +52,50 @@
     <!--面包屑导航-->
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
-      <li class="active">首页</li>
+      <li class="active">用户</li>
     </ol>
+ 
+  <div class="it_container">
+    <table class='table table-bordered table-hover'>
+      <thead>
+        <td width='10%'>序号</td>
+        <td width='30%'>用户名</td>
+        <td width='30%'>手机号</td>
+        <td width='20%'>状态</td>
+        <td width='10%'>操作</td>
+      </thead>
+      <tbody>
+       
+      </tbody>
+    </table>
+    <div id="pageNation">
+      <ul id=pagintor></ul>
+    </div>
+  </div>
   </div>
 </div>
 
-<!--模态框不要写在任何一个模块里-->
+<!--设置模版引擎-->
+<!--rows是后台数据获取的属性是个数组-->
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+  <td>{{(page-1)*size+i+1}}</td>
+  <td>{{v.username}}</td>
+  <td>v.mobile</td>
+  <td>{{v.isDelete==1? '正常':'禁用'}}</td>
+  <td data-id='{{v.id}}'>
+    {{if v.isDelete==0}}
+      <button class="btn btn-default btn-success">启用</button>
+    {{/if}}
+    {{if v.isDelete==1}}
+    <button class="btn btn-default btn-danger">禁用</button>
+    {{/if}}
+  </td>
+  </tr>
+  {{/each}}
+</script>
+<!--推出的模态框不要写在任何一个模块里-->
 <div class="modal fade bs-example-modal-sm" id="logoutModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -78,11 +116,35 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!--按钮点击的模态框-->
+<div class="modal fade bs-example-modal-sm" id="btnModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger">
+          <span class="glyphicon glyphicon-info-sign"></span>
+          你确定要<strong></strong>此操作吗？
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary btn-confirm">确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src=lib/bootstrap-paginator/bootstrap-paginator.js></script>>
 <script src="js/common.js"></script>
-<script src="js/login.js"></script>
+<script src="js/users.js"></script>
 </body>
 </html>
