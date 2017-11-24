@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.lt_category_l{
+  float: left;
+  width: 90px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border:1px solid red;
+  text-align: center;
+}
+.lt_category_l a{
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  width: 100%;
+  color: #666;
+  background-color: #ccc;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+
+}
+.lt_category_l li.now a{
+  background-color: #fff;
+}
+.lt_category_r{
+  /*设置overflow：hidden;会触发bfc不会让子元素的内容影响到浮动的元素*/
+  height: 100%;
+  overflow: hidden;
+  /*background-color: pink;*/
+  position: relative;
+}
+.lt_category_r a{
+  float: left;
+  width:33.33%;
+  text-align: center;
+  
+}
+.lt_category_r a img{
+  width: 62px;
+  height: 62px;
+  margin: 0 auto;
+}
+.lt_category_r a p{
+  padding:5px;
+}

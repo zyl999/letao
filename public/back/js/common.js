@@ -74,7 +74,7 @@ $(function(){
   //点击退出的确定按钮发送ajax请求，清除session 在返回登陆也重新登录
   $('.certain').on('click',function(){
     //不用设置dataType:json;因为后端返回的数据是json
-    console.log(111)
+    // console.log(111)
     $.ajax({
       type:"get",
       url:"/employee/employeeLogout",

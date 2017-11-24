@@ -123,11 +123,25 @@ body,html{
   width: 45%;
   height: 400px;
 }
-.it_container table td{
+ table td{
   text-align: center;
   
 }
 /*页码作为文本让他右对齐*/
 #pageNation{
   text-align: right;
+}
+.it_content button.btn_add{
+  margin-bottom: 15px;
+}
+.fileUpload_box{
+  width:100px;
+  height:40px;
+  position: relative;
+}
+.fileUpload_box input{
+  position: absolute;
+  top: 0;
+  left:0;
+  opacity: 0;
 }

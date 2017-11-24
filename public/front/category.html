@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>分类页面</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <!--引入样式-->
+  <!--最大的字体图标样式-->
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+  <!--引入mui插件-->
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+<div class="lt_content">
+  <div class="lt_header">
+    <a href="index.html" class="top_l">
+      <span class="fa fa-home "></span>
+    </a>
+    <h3>乐淘云购</h3>
+    <a href="search.html" class="top_r">
+      <span class="fa fa-search"></span>
+    </a>
+  </div>
+  <div class="lt_main">
+      <div class="lt_category_l">
+      
+        <div class="mui-scroll-wrapper">
+          <ul class="mui-scroll">
+            <!--挖个坑-->
+            <!--<li>-->
+              <!--<a href="javascript:;">阿迪</a>-->
+            <!--</li>-->
+          </ul>
+        </div>
+      </div>
+      <div class="lt_category_r">
+       <div class="mui-scroll-wrapper">
+         <ul class="mui-scroll">
+           <!--挖个坑-->
+         </ul>
+       </div>
+     </div>
+  </div>
+  <div class="lt_footer">
+    <ul class=>
+      <li>
+        <a href="index.html">
+          <span class="fa fa-home"></span>
+          <p>首页</p>
+        </a>
+      </li>
+      <li>
+        <a href="category.html">
+          <span class="fa fa-bars"></span>
+          <p>分类</p>
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <span class="fa fa-shopping-cart"></span>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <a href="index.html">
+          <span class="fa fa-user"></span>
+          <p>会员中心</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--渲染二级分类模版-->
+<script type="text/html" id="categoryModal">
+  {{each rows v i}}
+  <li data-id="{{v.id}}"class="{{i==0?'now':''}}"><a href="javascript:;">{{v.categoryName}}</a></li>
+  <!--<li><a href="">111</a></li>-->
+  {{/each}}
+
+</script>
+
+<!--右侧渲染模版-->
+
+<script type="text/html" id="rightModel">
+{{each rows v i}}
+{{if rows.length==0}}
+ <div>暂无商品出卖</div>
+{{/if}}
+<li>
+  <a href="#">
+    <img src="{{v.brandLogo}}" alt="">
+    <p>{{v.brandName}}</p>
+  </a>
+</li>
+{{/each}}
+</script>
+<script src="lib/mui/js/mui.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/category.js"></script>
+</body>
+</html>

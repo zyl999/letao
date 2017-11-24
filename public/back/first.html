@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>一级分类</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
@@ -20,7 +20,7 @@
   <div class="nav">
     <ul>
       <li>
-        <a href="user.html" class="now">
+        <a href="user.html">
           <span class="glyphicon glyphicon-user"></span>
           用户管理
         </a>
@@ -28,8 +28,8 @@
       <li><a href="javascript:;">
         <span class="glyphicon glyphicon-list"></span>
         分类管理</a>
-        <div class='child' style="display: none">
-          <a href="first.html">一级分类</a>
+        <div class='child' style="display: block">
+          <a class="now" href="first.html">一级分类</a>
           <a href="second.html">二级分类</a>
         </div>
       </li>
@@ -52,11 +52,36 @@
     <!--面包屑导航-->
     <ol class="breadcrumb">
       <li><a href="#">管理系统</a></li>
-      <li class="active">分类一</li>
+      <li class="active">分类管理</li>
+      <li>一级分类</li>
     </ol>
+    <div class="it_content">
+      <button class="btn btn-default btn_add">添加分类</button>
+      <table class="table table-bordered">
+        <thead>
+         <td width='20%'>序号</td>
+         <td width="80%">分类名称</td>
+        </thead>
+        <tbody>
+        <!--挖个洞-->
+        </tbody>
+      </table>
+      <div id="pageNation">
+        <ul id=pagintor></ul>
+      </div>
+    </div>
   </div>
 </div>
 
+<!--渲染数据模版-->
+<script type="text/html" id="tpl">
+{{each rows v i }}
+  <tr>
+    <td>{{(page-1)*i+i+1}}</td>
+    <td>{{v.categoryName}}</td>
+  </tr>
+{{/each}}
+</script>
 <!--模态框不要写在任何一个模块里-->
 <div class="modal fade bs-example-modal-sm" id="logoutModal">
   <div class="modal-dialog modal-sm">
@@ -78,11 +103,37 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!--添加页面的模态框-->
+<div class="modal fade bs-example-modal-sm" id="addModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <form id="form">
+      <div class="modal-body">
+        
+          <div class="form-group">
+            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类的名称">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button class="btn btn-primary">确定</button>
+      </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src=lib/artTemplate/template-web.js></script>
 <script src="js/common.js"></script>
-<script src="js/login.js"></script>
+<script src="js/first.js"></script>
 </body>
 </html>
